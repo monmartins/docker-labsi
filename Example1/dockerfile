@@ -1,0 +1,17 @@
+FROM ubuntu:latest as ramon
+LABEL maintainer="Ramon Martins <ramonmartins.campos@gmail.com>"
+LABEL description="Exemplo de instalação com Dockerfile ."
+
+RUN echo "nameserver 8.8.8.8" | tee /etc/resolv.conf > /dev/null && \
+apt-get update -y && \
+apt-get install apt-utils python python-pip git ssh -y && \
+pip install awsscout2
+
+WORKDIR /opt/
+
+RUN git clone https://github.com/colental/byob 
+
+WORKDIR /home/
+
+EXPOSE 80/tcp
+EXPOSE 22/tcp

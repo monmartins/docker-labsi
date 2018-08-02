@@ -1,0 +1,17 @@
+# v2 syntax
+version: '2'
+ 
+ 
+services:
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: dvwa
+ 
+  meta:
+    image: metasploitframework/metasploit-framework
+    container_name: meta
+    tty: true
+    stdin_open: true
+    links:      
+      - dvwa

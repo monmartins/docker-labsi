@@ -4,12 +4,13 @@ LABEL description="Exemplo de instalação com Dockerfile ."
 
 RUN echo "nameserver 8.8.8.8" | tee /etc/resolv.conf > /dev/null && \
 apt-get update -y && \
-apt-get install apt-utils python python-pip git ssh -y && \
+apt-get install apt-utils python python-pip git ssh dsniff dnsrecon -y && \
 pip install awsscout2
 
 WORKDIR /opt/
 
 RUN git clone https://github.com/colental/byob 
+RUN git clone https://github.com/iphelix/dnschef.git
 
 WORKDIR /home/
 

@@ -1,0 +1,3 @@
+primeiro criar pem dachave ssh
+
+ssh-keygen -f ~/.ssh/id_rsa -e -m pem
